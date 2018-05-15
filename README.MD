@@ -6,19 +6,41 @@ Chunk splitting is aimed to improve bundle performance loading (in the browser).
 
 Configuration inside **webpack.config.json**:
 
+In case you want to generate **commons** chunk containing shared packages by entry points:
+
 ```
   optimization: {
     // instead of CommonsChunkPlugin
     splitChunks: {
       // min chunk size, if less then no split
       minSize: 50000,
-      // generate separate vendor bundle including all packages under node_modules
       cacheGroups: {
+        // commons chunk with shared packages by entry points
         commons: {
+          name: 'commons',
+          chunks: 'initial',
+          minChunks: 2
+        },
+      }
+    }
+  },
+```
+
+In case you want to generate **vendors** chunk containing all node_modules packages:
+
+```
+  optimization: {
+    // instead of CommonsChunkPlugin
+    splitChunks: {
+      // min chunk size, if less then no split
+      minSize: 50000,
+      cacheGroups: {
+        // vendors chunk contains all node_modules packages
+        vendors: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all'
-        }
+        },
       }
     }
   },
@@ -31,11 +53,4 @@ npm install
 npm build
 ```
 
-Two bundles will be generated for **vendors** and **main**.
-A minSize property can be set to
-limit the chunk creation.
-
-```
-// min chunk size, if less then no split
-minSize: 50000,
-```
+For the test of above cases, you can play with **webpack.config.js**
