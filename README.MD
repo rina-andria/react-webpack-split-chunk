@@ -8,7 +8,7 @@ Configuration inside **webpack.config.json**:
 
 In case you want to generate **commons** chunk containing shared packages by entry points:
 
-```
+```js
   optimization: {
     // instead of CommonsChunkPlugin
     splitChunks: {
@@ -28,7 +28,7 @@ In case you want to generate **commons** chunk containing shared packages by ent
 
 In case you want to generate **vendors** chunk containing all node_modules packages:
 
-```
+```js
   optimization: {
     // instead of CommonsChunkPlugin
     splitChunks: {
