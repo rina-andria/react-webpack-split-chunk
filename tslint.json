@@ -1,0 +1,27 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-react"],
+  "jsRules": {
+    "max-line-length": {
+      "options": [120]
+    }
+  },
+  "rules": {
+    "max-line-length": {
+      "options": [120]
+    },
+    "jsx-wrap-multiline": true,
+    "jsx-space-before-trailing-slash": true,
+    "jsx-no-lambda": true,
+    "jsx-no-multiline-js": false,
+    "jsx-no-bind": true,
+    "jsx-key": true,
+    "jsx-equals-spacing": true,
+    "jsx-self-close": true,
+
+    "trailing-comma": false,
+    "quotemark": false,
+    "no-console": true
+  },
+  "rulesDirectory": []
+}

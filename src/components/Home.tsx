@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-interface HomeProps {
+interface IHomeProps {
   firstname: string;
   lastname: string;
 }
 
-interface HomeState {
+interface IHomeState {
   sayBye: boolean;
 }
 
-export class Home extends React.Component<HomeProps, HomeState> {
+export class Home extends React.Component<IHomeProps, IHomeState> {
   constructor(props: any) {
     super(props);
 
@@ -18,12 +18,14 @@ export class Home extends React.Component<HomeProps, HomeState> {
     };
   }
 
-  render() {
+  public handleClick = () => this.setState({ sayBye: !this.state.sayBye });
+
+  public render() {
     return (
       <React.Fragment>
         {this.state.sayBye ? 'Hi' : 'Bye'} {this.props.firstname}{' '}
         {this.props.lastname}!
-        <button onClick={() => this.setState({ sayBye: !this.state.sayBye })}>
+        <button onClick={this.handleClick}>
           {!this.state.sayBye ? 'Say Hi' : 'Say Bye'}
         </button>
       </React.Fragment>

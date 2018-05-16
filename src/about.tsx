@@ -1,6 +1,6 @@
+import { map } from 'lodash';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { map } from 'lodash';
 
 ReactDOM.render(
   <div>
